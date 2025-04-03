@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Categories - Category - Rafał Kobel</title>
+        <link>https://rafyco.pl/en/categories/</link>
+        <description>Categories - Category - Rafał Kobel</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>rafalkobel@rafyco.pl (Rafał Kobel)</managingEditor>
+            <webMaster>rafalkobel@rafyco.pl (Rafał Kobel)</webMaster><lastBuildDate>Tue, 26 Sep 2017 22:52:12 &#43;0100</lastBuildDate><atom:link href="https://rafyco.pl/en/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>Reflections</title>
+    <link>https://rafyco.pl/en/categories/reflections/</link>
+    <pubDate>Tue, 26 Sep 2017 22:52:12 &#43;0100</pubDate>
+    <author>Rafał Kobel</author>
+    <guid>https://rafyco.pl/en/categories/reflections/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
+</rss>

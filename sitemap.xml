@@ -1,14 +1,18 @@
-<urlset
-    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-    xmlns:xhtml="http://www.w3.org/1999/xhtml"
-    ><url>
-            <loc>https://rafyco.pl/about/</loc><lastmod>2025-03-17T22:47:59&#43;01:00</lastmod></url><url>
-            <loc>https://rafyco.pl/</loc><lastmod>2025-03-17T22:47:59&#43;01:00</lastmod></url><url>
-            <loc>https://rafyco.pl/naszslub/</loc><lastmod>2022-10-15T22:47:59&#43;01:00</lastmod></url><url>
-            <loc>https://rafyco.pl/categories/</loc><lastmod>2017-09-26T22:52:12&#43;01:00</lastmod></url><url>
-            <loc>https://rafyco.pl/posts/nagrywarka/</loc><lastmod>2017-09-26T22:52:12&#43;01:00</lastmod></url><url>
-            <loc>https://rafyco.pl/posts/</loc><lastmod>2017-09-26T22:52:12&#43;01:00</lastmod></url><url>
-            <loc>https://rafyco.pl/categories/przemy%C5%9Blenia/</loc><lastmod>2017-09-26T22:52:12&#43;01:00</lastmod></url><url>
-            <loc>https://rafyco.pl/tags/reklama/</loc><lastmod>2017-09-26T22:52:12&#43;01:00</lastmod></url><url>
-            <loc>https://rafyco.pl/tags/</loc><lastmod>2017-09-26T22:52:12&#43;01:00</lastmod></url><url>
-            <loc>https://rafyco.pl/posts/epilog/</loc><lastmod>2017-08-18T22:49:51&#43;01:00</lastmod></url></urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <sitemap>
+    <loc>https://rafyco.pl/pl/sitemap.xml</loc>
+    
+      <lastmod>2025-04-22T06:00:00+01:00</lastmod>
+    
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://rafyco.pl/en/sitemap.xml</loc>
+    
+      <lastmod>2025-04-15T06:00:00+01:00</lastmod>
+    
+  </sitemap>
+  
+</sitemapindex>

@@ -1,0 +1,19 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Ad - Tag - Rafał Kobel</title>
+        <link>http://localhost:1313/en/tags/ad/</link>
+        <description>Ad - Tag - Rafał Kobel</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>rafalkobel@rafyco.pl (Rafał Kobel)</managingEditor>
+            <webMaster>rafalkobel@rafyco.pl (Rafał Kobel)</webMaster><lastBuildDate>Tue, 26 Sep 2017 22:52:12 &#43;0100</lastBuildDate><atom:link href="http://localhost:1313/en/tags/ad/" rel="self" type="application/rss+xml" /><item>
+    <title>Human recorder</title>
+    <link>http://localhost:1313/en/posts/nagrywarka/</link>
+    <pubDate>Tue, 26 Sep 2017 22:52:12 &#43;0100</pubDate>
+    <author>Rafał Kobel</author>
+    <guid>http://localhost:1313/en/posts/nagrywarka/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/nagrywarka/featured-image.jpg" referrerpolicy="no-referrer">
+            </div><p>A few days ago, while looking at a group of children, I noticed an interesting phenomenon. Today I will write a few words about it.</p>
+<p>Advertisements, who doesn&rsquo;t know them. They surround us from all sides, leaving a permanent mark in our psyche encouraging us to consume a product or use someone&rsquo;s service. No wonder, then, that people are reacting more and more aggressively to successive offers appearing in the press or on television.</p>]]></description>
+</item>
+</channel>
+</rss>

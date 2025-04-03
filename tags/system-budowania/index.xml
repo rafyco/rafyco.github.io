@@ -1,0 +1,26 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>System Budowania - Tag - Rafał Kobel</title>
+        <link>http://localhost:1313/tags/system-budowania/</link>
+        <description>System Budowania - Tag - Rafał Kobel</description>
+        <generator>Hugo -- gohugo.io</generator><language>pl</language><managingEditor>rafalkobel@rafyco.pl (Rafał Kobel)</managingEditor>
+            <webMaster>rafalkobel@rafyco.pl (Rafał Kobel)</webMaster><lastBuildDate>Tue, 22 Apr 2025 06:00:00 &#43;0100</lastBuildDate><atom:link href="http://localhost:1313/tags/system-budowania/" rel="self" type="application/rss+xml" /><item>
+    <title>Taskfile - Twój pomocnik przy budowaniu apki [draft]</title>
+    <link>http://localhost:1313/posts/taskfile/</link>
+    <pubDate>Tue, 22 Apr 2025 06:00:00 &#43;0100</pubDate>
+    <author>Rafał Kobel</author>
+    <guid>http://localhost:1313/posts/taskfile/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/taskfile/featured-image.png" referrerpolicy="no-referrer">
+            </div><p>Czasami, pracując nad różnymi projektami, zdarza się nam używać różnych technologii. Flutter, React, Python czy Java
+mają różne systemy budowania, z których każdy charakteryzuje się własnym podejściem do problemu. Co więc zrobić,
+jeśli chcemy mieć pewność, że nawet po dłuższym odpoczynku od technologii będziemy w stanie szybko zbudować i przetestować
+nasz projekt.</p>
+<h2 id="1-dlaczego-taskfile">1. Dlaczego Taskfile?</h2>
+<p>Opisane wcześniej frameworki, czy języki mają naprawdę świetne sposoby na budowanie aplikacji. Najczęściej sprowadza się
+to do korzystania z mniej lub bardziej skomplikowanego klienta, który umożliwia budowanie, testowanie, a nawet
+deployment projektu do chmury. To znaczy, nie jest żadnym problemem nauczenie się systemu budowania i tak robiłem przez
+długi czas. Fajnie byłoby jednak mieć jednak jakiś zunifikowany sposób na otwieranie i zarządzanie pakietami.</p>]]></description>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Taskfile - Twój pomocnik przy budowaniu apki [draft] - Rafał Kobel</title><meta name="Description" content="Prywatna strona Rafała Kobla"><meta property="og:url" content="http://localhost:1313/posts/taskfile/">
+  <meta property="og:site_name" content="Rafał Kobel">
+  <meta property="og:title" content="Taskfile - Twój pomocnik przy budowaniu apki [draft]">
+  <meta property="og:description" content="Czasami, pracując nad różnymi projektami, zdarza się nam używać różnych technologii. Flutter, React, Python czy Java mają różne systemy budowania, z których każdy charakteryzuje się własnym podejściem do problemu. Co więc zrobić, jeśli chcemy mieć pewność, że nawet po dłuższym odpoczynku od technologii będziemy w stanie szybko zbudować i przetestować nasz projekt.
+1. Dlaczego Taskfile? Opisane wcześniej frameworki, czy języki mają naprawdę świetne sposoby na budowanie aplikacji. Najczęściej sprowadza się to do korzystania z mniej lub bardziej skomplikowanego klienta, który umożliwia budowanie, testowanie, a nawet deployment projektu do chmury. To znaczy, nie jest żadnym problemem nauczenie się systemu budowania i tak robiłem przez długi czas. Fajnie byłoby jednak mieć jednak jakiś zunifikowany sposób na otwieranie i zarządzanie pakietami.">
+  <meta property="og:locale" content="pl">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-22T06:00:00+01:00">
+    <meta property="article:modified_time" content="2025-04-22T06:00:00+01:00">
+    <meta property="article:tag" content="Taskfile">
+    <meta property="article:tag" content="Narzędzia">
+    <meta property="article:tag" content="System Budowania">
+    <meta property="article:tag" content="Devops">
+    <meta property="og:image" content="http://localhost:1313/posts/taskfile/featured-image.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/posts/taskfile/featured-image.png">
+  <meta name="twitter:title" content="Taskfile - Twój pomocnik przy budowaniu apki [draft]">
+  <meta name="twitter:description" content="Czasami, pracując nad różnymi projektami, zdarza się nam używać różnych technologii. Flutter, React, Python czy Java mają różne systemy budowania, z których każdy charakteryzuje się własnym podejściem do problemu. Co więc zrobić, jeśli chcemy mieć pewność, że nawet po dłuższym odpoczynku od technologii będziemy w stanie szybko zbudować i przetestować nasz projekt.
+1. Dlaczego Taskfile? Opisane wcześniej frameworki, czy języki mają naprawdę świetne sposoby na budowanie aplikacji. Najczęściej sprowadza się to do korzystania z mniej lub bardziej skomplikowanego klienta, który umożliwia budowanie, testowanie, a nawet deployment projektu do chmury. To znaczy, nie jest żadnym problemem nauczenie się systemu budowania i tak robiłem przez długi czas. Fajnie byłoby jednak mieć jednak jakiś zunifikowany sposób na otwieranie i zarządzanie pakietami.">
+<meta name="application-name" content="Rafyco.pl">
+<meta name="apple-mobile-web-app-title" content="Rafyco.pl"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/posts/taskfile/" /><link rel="prev" href="http://localhost:1313/posts/issue-link/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Taskfile - Twój pomocnik przy budowaniu apki [draft]",
+        "inLanguage": "pl",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/posts\/taskfile\/"
+        },"genre": "posts","keywords": "taskfile, narzędzia, system budowania, devops","wordcount":  1234 ,
+        "url": "http:\/\/localhost:1313\/posts\/taskfile\/","datePublished": "2025-04-22T06:00:00+01:00","dateModified": "2025-04-22T06:00:00+01:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Rafał Kobel"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Rafał Kobel"><span class="header-title-pre"><i class='fa-solid fa-power-off' aria-hidden='true'></i></span>Rafyco.pl</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Blog </a><a class="menu-item" href="/about/"> O mnie </a><a class="menu-item" href="https://linktr.ee/rafyco" rel="noopener noreffer" target="_blank"> Linktree </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Przełącz schemat">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="Wybierz język">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/posts/taskfile/" selected>Polski</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Rafał Kobel"><span class="header-title-pre"><i class='fa-solid fa-power-off' aria-hidden='true'></i></span>Rafyco.pl</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Blog</a><a class="menu-item" href="/about/" title="">O mnie</a><a class="menu-item" href="https://linktr.ee/rafyco" title="" rel="noopener noreffer" target="_blank">Linktree</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Przełącz schemat">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Wybierz język">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/posts/taskfile/" selected>Polski</option></select>
+                </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Spis treści</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Taskfile - Twój pomocnik przy budowaniu apki [draft]</h1><h2 class="single-subtitle">Taskfile - instalacja i użycie</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://rafyco.pl" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Rafał Kobel</a></span>&nbsp;<span class="post-category">zawarty w <a href="/categories/it/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>It</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-04-22">2025-04-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1234 słów&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minuty&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/taskfile/featured-image.png"
+        data-srcset="/posts/taskfile/featured-image.png, /posts/taskfile/featured-image.png 1.5x, /posts/taskfile/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/posts/taskfile/featured-image.png"
+        title="/posts/taskfile/featured-image.png" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Spis treści</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-dlaczego-taskfile">1. Dlaczego Taskfile?</a>
+      <ul>
+        <li><a href="#why-readme">Może wystarczy jeden README.md</a></li>
+        <li><a href="#why-bash-script">To może skrypt w bashu?</a></li>
+        <li><a href="#why-check-makefile">Makefile? - Brzmi świetnie!</a></li>
+        <li><a href="#why-taskfile">To w końcu co?</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-szybkie-wprowadzenie">2. Szybkie wprowadzenie</a>
+      <ul>
+        <li><a href="#instalacja---czyli-czas-zacząć-zabawę">Instalacja - czyli czas zacząć zabawę</a></li>
+        <li><a href="#prosty-przykład">Prosty przykład</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-jak-tego-używam">3. Jak tego używam?</a>
+      <ul>
+        <li><a href="#package-manager">Praca z innymi package managerami na przykładzie yarn&rsquo;a</a></li>
+        <li><a href="#konfiguracja-github-action">Konfiguracja github action</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-podsumowanie">4. Podsumowanie</a></li>
+    <li><a href="#5-bibliografia">5. Bibliografia</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Czasami, pracując nad różnymi projektami, zdarza się nam używać różnych technologii. Flutter, React, Python czy Java
+mają różne systemy budowania, z których każdy charakteryzuje się własnym podejściem do problemu. Co więc zrobić,
+jeśli chcemy mieć pewność, że nawet po dłuższym odpoczynku od technologii będziemy w stanie szybko zbudować i przetestować
+nasz projekt.</p>
+<h2 id="1-dlaczego-taskfile">1. Dlaczego Taskfile?</h2>
+<p>Opisane wcześniej frameworki, czy języki mają naprawdę świetne sposoby na budowanie aplikacji. Najczęściej sprowadza się
+to do korzystania z mniej lub bardziej skomplikowanego klienta, który umożliwia budowanie, testowanie, a nawet
+deployment projektu do chmury. To znaczy, nie jest żadnym problemem nauczenie się systemu budowania i tak robiłem przez
+długi czas. Fajnie byłoby jednak mieć jednak jakiś zunifikowany sposób na otwieranie i zarządzanie pakietami.</p>
+<h3 id="why-readme">Może wystarczy jeden README.md</h3>
+<p>Pierwszym moim podejściem na poradzenie sobie z zarządzaniem różnymi projektami było napisanie specjalnie do tego
+przygotowanego pliku <code>REAMDE.md</code>. Pomimo dokumentowania, w jaki sposób otwieramy czy testujemy projekt, podejście takie
+ma kilka zasadniczych braków. Umówmy się, komu chce się przechodzić przez kolejne kroki instrukcji, czytając które
+z poleceń trzeba wykonać, aby uruchomić projekt i denerwować się kopiując kolejne polecenia do terminala, aby doczytać
+potem, że nie były potrzebne w Twoim przypadku. Albo kto chce ryzykować, że przygotowanie projektu, ściągnięcie kolejnych
+zależności będzie trwało dłużej niż to konieczne.</p>
+<p>Ostatecznie dokumentowanie kodu i projektów jest niezbędne i sam nie wyobrażam sobie profesjonalnego programu bez udokumentowania
+go odpowiednim plikiem. Szczególnie że fajnie wygląda on w projekcie np. na platformie github. W każdym razie uważam,
+że dobra dokumentacja to ta, która zapisana jest w kodzie. Z tego powodu bardziej skomplikowane operacje wolę zapisać
+w postaci pojedyńczych - ściśle określonych poleceń, które można łatwo wywołać.</p>
+<h3 id="why-bash-script">To może skrypt w bashu?</h3>
+<p>Co, gdyby polecenia zapisać w skrypcie bash? Teoretycznie można to zrobić, ale tutaj pojawia się kilka problemów. Skrypty
+shellowe są co prawda zaprojektowane do automatyzowania poleceń powłoki, jednak ich uniwersalność jest tutaj zarówno
+zaletą, jak i wadą. Aby użyć ich w kontekście budowania aplikacji, trzeba się troszkę natrudzić. Można co prawda stworzyć
+pętle do przetwarzania kolejnych poleceń, ale niestety wymaga to strasznie dużo dodatkowego kodu, który zaciemnia
+znaczenie tego, co chcemy osiągnąć. Dodanie dodatkowego polecenia do wypisywania dostępnych komend, czy napisanie prostego
+helpa, to dodatkowe skomplikowanie kodu, które naprawdę nie jest w tym momencie potrzebne.</p>
+<p>Wyobraźcie sobie w tym momencie jeszcze obsługę jakichś zależności. Koszmar!!! Można się co prawda ratować jakimś
+template&rsquo;m, ale moim zdaniem to gra nie warta świeczki. Tym bardziej że takie rozwiązanie wcale nie wygląda elegancko.</p>
+<h3 id="why-check-makefile">Makefile? - Brzmi świetnie!</h3>
+<div class="details admonition warning open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-exclamation-triangle fa-fw" aria-hidden="true"></i>TODO<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Skrytykować trochę makefile</div>
+        </div>
+    </div>
+<h3 id="why-taskfile">To w końcu co?</h3>
+<p>I tutaj pojawia się on, cały na biało - <code>Taskfile</code>.</p>
+<p>Taskfile jest napisanym w języku <code>go</code> oprogramowaniem do zarządzania poleceniami, który z założenia ma być prosty w użyciu.
+Kompilowany jest do zaledwie jednego pliku binarnego, przez co nie potrzebujemy zaciągać z internetu miliona zależności,
+które i tak nam się nie przydadzą, a tylko zaśmiecają komputer. Dzięki temu łatwiejsze jest również implementowanie
+tego rozwiązania we wszelkiego rodzaju systemach CICD.</p>
+<p>Rozwiązanie to wspiera nie tylko proste wykonywanie pojedyńczych poleceń, ale umożliwia też określenie zależności pomiędzy
+nimi, czy warunków wykonania. Możemy np. stworzyć polecenie do ściągnięcia z internetu zewnętrznych zasobów, a potem dodać
+je jako zależność do polecenia budującego. Mając odpowiedni warunek dla pierwszej instarukcji, można też sprawić, że będzie
+ona wykonywana tylko, jeśli jest taka potrzeba, a więc ściąganie obrazków, czy innych rzeczy nie musi się wykonywać za
+każdym razem.</p>
+<p>Poza tym mamy też wsparcie dla includowania plików <code>Taskfile</code> z innych lokacji. Umożliwia to nie tylko budowanie struktur
+dla wielopakietowych projektów, ale również rozdzielenie instrukcji np. dla obsługi <code>dockera</code>, w oddzielnych plikach.</p>
+<p>Dość powiedzieć, ze wiele rzeczy jestem w stanie obsłużyć używając jedynie <code>Taskfile</code>, w którym dodatkowo, każde z poleceń
+może mieć własny opis.</p>
+<h2 id="2-szybkie-wprowadzenie">2. Szybkie wprowadzenie</h2>
+<p>Powiedzmy, że damy szanse Taskfile. Jak się więc do tego zabrać, żeby nie tracić czasu</p>
+<h3 id="instalacja---czyli-czas-zacząć-zabawę">Instalacja - czyli czas zacząć zabawę</h3>
+<p>Task jest narzędziem napisanym w języku go, przez co mając zainstalowane odpowiednie oprogramowanie, jesteśmy w stanie
+zainstalować narzędzie bezpośrednio ze <a href="https://github.com/go-task/task" target="_blank" rel="noopener noreffer ">źródeł</a>. Istnieje także możliwość instalacji
+z użyciem jednego z managerów pakietów dla wielu różnych języków.</p>
+<p>Mając zainstalowany Python można też skorzystać z odpowiedniego dla tego języka managera pakietów - <a href="https://pip.pypa.io/" target="_blank" rel="noopener noreffer ">pip</a>.</p>
+<pre><code>pip install go-task-bin
+</code></pre>
+<p>Użytkownicy javascript mogą spróbować instalacji za pomocą <a href="https://www.npmjs.com/" target="_blank" rel="noopener noreffer ">npm</a></p>
+<pre><code>npm install -g @go-task/cli
+</code></pre>
+<p>Sam jednak, używając Linuxa, preferuję używanie pakietu <a href="https://snapcraft.io/task" target="_blank" rel="noopener noreffer ">snap</a>.</p>
+<pre><code>sudo snap install task --classic
+</code></pre>
+<p>Istnieje także wiele innych alternatywnych metod instalacji tego oprogramowania zarówna dla użytkowników Linuxa, Windowsa,
+a nawet MacOS. Wszystkie zostały opisane na <a href="https://taskfile.dev/installation/" target="_blank" rel="noopener noreffer ">stronie autora</a>.</p>
+<h3 id="prosty-przykład">Prosty przykład</h3>
+<p>Aby rozpocząć używanie naszego systemu budowania, należy stworzyć plik yaml o nazwie <code>Taskfile.yml</code>. Jeśli pracujemy nad
+zewnętrznym projektem, można go dodać jako ignorowany w systemie kontroli wersji (np. poprzez dodanie wpisu
+do pliku <code>.git/info/exclude</code>). W prywatnych projektach, gdzie chcemy go zacommitować, zalecam dodanie pliku o nazwie:
+<code>Taskfile.dist.yml</code>, oraz dodanie <code>Taskfile.yml</code> do <code>.gitignore</code> tak, aby każdy z programistów mógł we własnym zakresie
+dopisać swoją implementację, jeśli ma taką potrzebę.</p>
+<p>Najprostszy plik może wyglądać w ten sposób</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Skopiuj do schowka"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">tasks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hello-world</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmds</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">echo &#34;Hello world&#34;</span></span></span></code></pre></div></div>
+<p>Podstawową jednostką operacyjną jest w tym przypadku jeden task. To on opisuje, jak ma wyglądać zadanie do wykonania.
+W tym przypadku stworzyliśmy taska o nazwie <strong>hello-world</strong>. Uruchomienie go, wygląda następująco:</p>
+<pre><code>task hello-world
+</code></pre>
+<p>Polecenie powinno wypisać tekst <code>Hello world</code> na ekranie. Dodają nowe elementy do klucza <code>tasks</code> możemy rozszerzać swój
+plik o kolejne polecenia. Więcej na przykładzie <a href="#package-manager" rel="">managera yarn</a>.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Notka<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Oczywiście poszczególne taski mogą mieć swoje opisy, automatycznie wykonywane zależności, aliasy oraz zdefiniowany
+folder, z którego będziemy wywoływać nasz program, jednak o tych zależnościach możecie poczytać
+na stronie autora: <a href="https://taskfile.dev/usage" target="_blank" rel="noopener noreffer ">https://taskfile.dev/usage</a>.</div>
+        </div>
+    </div>
+<h2 id="3-jak-tego-używam">3. Jak tego używam?</h2>
+<p>W tej części kilka słów jak używam tego oprogramowania do swoich potrzeb.</p>
+<h3 id="package-manager">Praca z innymi package managerami na przykładzie yarn&rsquo;a</h3>
+<p>Pracę nad projektami zazwyczaj zaczynam od zdefiniowania podstawowych poleceń, które stanowią szkielet do dalszej pracy.
+Są one wspólne pomiędzy moimi projektami i pozwalają szybko odnaleść się pomiędzy projektami. Są to:</p>
+<ul>
+<li><strong>init</strong> - Przygotowuje środowisko, ściąga zależności, instaluje brakujące komponenty. Najczęściej jest zależnością dla pozostałych zadań</li>
+<li><strong>start</strong> - Uruchamia środowisko developerskie</li>
+<li><strong>test</strong> - Uruchamia unittesty, lintery i inne narzędzia do testowania kodu</li>
+<li><strong>build</strong> - Tworzy paczkę z oprogramowaniem gotową do dystrybucji</li>
+<li><strong>deploy</strong> - Ten task jest zazwyczaj opcjonalny i ma za zadanie wysłanie zbudowanej paczki na serwer lub do sklepu</li>
+</ul>
+<p>Zestaw ten jest najczęściej rozszerzany o dodatkowe taski, które potem zazwyczaj stanowią część wyżej wymienionych.</p>
+<p>Skorzystajmy więc z przykładu, który omówię w dalszej części wpisu. Oczywiście musimy założyć, że program yarn ma kilka
+zdefiniowanych komend takich jak: start, build, test i lint. Przyjmijmy, że są one poprawnie skonfigurowanymi poleceniami
+oraz że wykonują pracę, na jaką wskazuje ich nazwa.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Skopiuj do schowka"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">tasks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">init</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">once</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="l">yarn install</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">sources</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">package.json</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">generates</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">node_modules/.yarn-state.yml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">start</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">deps</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">build]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="l">yarn start</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">test-lint</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">deps</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">init]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="l">yarn lint</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">test-unittests</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">deps</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">init]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="l">yarn test </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">test</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmds</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l">test-lint</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l">test-unittests</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">deps</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">init]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="l">yarn build</span></span></span></code></pre></div></div>
+<div class="details admonition warning open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-exclamation-triangle fa-fw" aria-hidden="true"></i>TODO<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Opisać plik yaml</div>
+        </div>
+    </div>
+<h3 id="konfiguracja-github-action">Konfiguracja github action</h3>
+<p>Mając tak skonfigurowany plik <code>Taskfile</code> warto użyć go w automatycznym testowaniu. W przypadku github Aciton autor zaleca
+użycie następującego polecenia <a href="https://taskfile.dev/installation/#github-actions" target="_blank" rel="noopener noreffer ">źródło</a>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Skopiuj do schowka"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl">- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install Task</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">arduino/setup-task@v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="m">3.</span><span class="l">x</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">repo-token</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.GITHUB_TOKEN }}</span></span></span></code></pre></div></div>
+<p>Ja natomiast używam w swoich projektach czegoś takiego:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Skopiuj do schowka"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl">- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install Taskfile</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">    echo &#34;::group::Install Taskfile&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">    sudo sh -c &#34;$(curl --location &#39;https://taskfile.dev/install.sh&#39;)&#34; -- -d -b /usr/bin/
+</span></span></span><span class="line"><span class="cl"><span class="sd">    sudo chmod +x /usr/bin/task
+</span></span></span><span class="line"><span class="cl"><span class="sd">    echo &#34;::endgroup::&#34;</span></span></span></code></pre></div></div>
+<h2 id="4-podsumowanie">4. Podsumowanie</h2>
+<div class="details admonition warning open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-exclamation-triangle fa-fw" aria-hidden="true"></i>TODO<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Zrobić podsumowanie + wady i zalety</div>
+        </div>
+    </div>
+<h2 id="5-bibliografia">5. Bibliografia</h2>
+<ol>
+<li><a href="https://taskfile.dev/" target="_blank" rel="noopener noreffer ">https://taskfile.dev/</a> - Strona główna projektu Taskfile</li>
+<li><a href="https://github.com/go-task/task" target="_blank" rel="noopener noreffer ">https://github.com/go-task/task</a> - Źródła projektu</li>
+<li><a href="/tags/taskfile" rel="">https://rafyco.pl/tags/taskfile</a> - Wszystkie artykuły na temat taskfile na tej stronie</li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Zaktualizowano 2025-04-22</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Udostępnij na Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/taskfile/" data-hashtag="taskfile"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Udostępnij na Linkedin" data-sharer="linkedin" data-url="http://localhost:1313/posts/taskfile/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Udostępnij na WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/posts/taskfile/" data-title="Taskfile - Twój pomocnik przy budowaniu apki [draft]" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Udostępnij na Pocket" data-sharer="pocket" data-url="http://localhost:1313/posts/taskfile/"><i class="fab fa-get-pocket fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Udostępnij na Evernote" data-sharer="evernote" data-url="http://localhost:1313/posts/taskfile/" data-title="Taskfile - Twój pomocnik przy budowaniu apki [draft]"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Udostępnij na Diaspora" data-sharer="diaspora" data-url="http://localhost:1313/posts/taskfile/" data-title="Taskfile - Twój pomocnik przy budowaniu apki [draft]" data-description=""><i class="fab fa-diaspora fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/taskfile/">Taskfile</a>,&nbsp;<a href="/tags/narz%C4%99dzia/">Narzędzia</a>,&nbsp;<a href="/tags/system-budowania/">System Budowania</a>,&nbsp;<a href="/tags/devops/">Devops</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Wstecz</a></span>&nbsp;|&nbsp;<span><a href="/">Strona główna</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/issue-link/" class="prev" rel="prev" title="Linki do tasków w inteliJ"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Linki do tasków w inteliJ</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2011 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://rafyco.pl" target="_blank">Rafał Kobel</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Powrót do góry">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="Zobacz komentarze">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script>window.config={"comment":{}};</script><script src="/js/theme.min.js"></script></body>
+</html>

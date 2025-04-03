@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Jetbrains - Tag - Rafał Kobel</title>
+        <link>http://localhost:1313/en/tags/jetbrains/</link>
+        <description>Jetbrains - Tag - Rafał Kobel</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>rafalkobel@rafyco.pl (Rafał Kobel)</managingEditor>
+            <webMaster>rafalkobel@rafyco.pl (Rafał Kobel)</webMaster><lastBuildDate>Tue, 15 Apr 2025 06:00:00 &#43;0100</lastBuildDate><atom:link href="http://localhost:1313/en/tags/jetbrains/" rel="self" type="application/rss+xml" /><item>
+    <title>Issue navigations in inteliJ</title>
+    <link>http://localhost:1313/en/posts/issue-link/</link>
+    <pubDate>Tue, 15 Apr 2025 06:00:00 &#43;0100</pubDate>
+    <author>Rafał Kobel</author>
+    <guid>http://localhost:1313/en/posts/issue-link/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/issue-link/featured-image.png" referrerpolicy="no-referrer">
+            </div><p>I use tools from JetBrains a lot in my work. One of the things that I like about their software
+is the well-performing version control system management tool. In addition to an efficient overview of the code history,
+we also have a lot of options to manage it in an easy and fun way. Today I will present a simple way to make
+links in the commit descriptions to allow faster navigation from the history to the page with the bug you are viewing.</p>]]></description>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Ide - Tag - Rafał Kobel</title>
+        <link>http://localhost:1313/tags/ide/</link>
+        <description>Ide - Tag - Rafał Kobel</description>
+        <generator>Hugo -- gohugo.io</generator><language>pl</language><managingEditor>rafalkobel@rafyco.pl (Rafał Kobel)</managingEditor>
+            <webMaster>rafalkobel@rafyco.pl (Rafał Kobel)</webMaster><lastBuildDate>Tue, 15 Apr 2025 06:00:00 &#43;0100</lastBuildDate><atom:link href="http://localhost:1313/tags/ide/" rel="self" type="application/rss+xml" /><item>
+    <title>Linki do tasków w inteliJ</title>
+    <link>http://localhost:1313/posts/issue-link/</link>
+    <pubDate>Tue, 15 Apr 2025 06:00:00 &#43;0100</pubDate>
+    <author>Rafał Kobel</author>
+    <guid>http://localhost:1313/posts/issue-link/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/issue-link/featured-image.png" referrerpolicy="no-referrer">
+            </div><p>W swojej pracy bardzo często korzystam z narzędzi od JetBrains. Jedną z rzeczy która mi się podoba w ich oprogramowaniu
+to dobrze działające narzędzie do zarządzania systemem kontroli wersji. Oprócz sprawnego przeglądania historii kodu,
+mamy też wiele możliwości zarządzania nią w łatwy i przyjemny sposób. Dzisiaj przedstawię prosty sposób na zrobienie
+linków w opisach commit&rsquo;ów, które umożliwią szybszą nawigację od historii do strony z przeglądanym błędem.</p>]]></description>
+</item>
+</channel>
+</rss>
