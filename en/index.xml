@@ -4,7 +4,7 @@
         <link>https://rafyco.pl/en/</link>
         <description>Rafał Kobel&#39;s private site</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>rafalkobel@rafyco.pl (Rafał Kobel)</managingEditor>
-            <webMaster>rafalkobel@rafyco.pl (Rafał Kobel)</webMaster><lastBuildDate>Tue, 15 Apr 2025 06:00:00 &#43;0100</lastBuildDate>
+            <webMaster>rafalkobel@rafyco.pl (Rafał Kobel)</webMaster><lastBuildDate>Mon, 17 Mar 2025 22:47:59 &#43;0100</lastBuildDate>
             <atom:link href="https://rafyco.pl/en/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Human recorder</title>
@@ -16,6 +16,18 @@
                 <img src="/posts/nagrywarka/featured-image.jpg" referrerpolicy="no-referrer">
             </div><p>A few days ago, while looking at a group of children, I noticed an interesting phenomenon. Today I will write a few
 words about it.</p>]]></description>
+</item>
+<item>
+    <title>Prologue</title>
+    <link>https://rafyco.pl/en/posts/prologue/</link>
+    <pubDate>Fri, 18 Aug 2017 22:49:51 &#43;0100</pubDate>
+    <author>Rafał Kobel</author>
+    <guid>https://rafyco.pl/en/posts/prologue/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/posts/prologue/featured-image.jpg" referrerpolicy="no-referrer">
+            </div><p>A Polish philosopher once ruled that the sun stands still and all the other planets revolve around it. Contrary to the
+common belief of the time that the sun is centrally located, he managed to convince the whole world of the validity
+of his views and won international fame.</p>]]></description>
 </item>
 </channel>
 </rss>
