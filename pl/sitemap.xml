@@ -2,6 +2,88 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://rafyco.pl/categories/</loc><lastmod>2025-04-10T06:00:00&#43;01:00</lastmod><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://rafyco.pl/en/categories/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="pl"
+                    href="https://rafyco.pl/categories/"
+                    /></url><url>
+            <loc>https://rafyco.pl/tags/ide/</loc><lastmod>2025-04-10T06:00:00&#43;01:00</lastmod><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://rafyco.pl/en/tags/ide/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="pl"
+                    href="https://rafyco.pl/tags/ide/"
+                    /></url><url>
+            <loc>https://rafyco.pl/tags/intelij/</loc><lastmod>2025-04-10T06:00:00&#43;01:00</lastmod><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://rafyco.pl/en/tags/intelij/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="pl"
+                    href="https://rafyco.pl/tags/intelij/"
+                    /></url><url>
+            <loc>https://rafyco.pl/categories/it/</loc><lastmod>2025-04-10T06:00:00&#43;01:00</lastmod><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://rafyco.pl/en/categories/it/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="pl"
+                    href="https://rafyco.pl/categories/it/"
+                    /></url><url>
+            <loc>https://rafyco.pl/tags/jetbrains/</loc><lastmod>2025-04-10T06:00:00&#43;01:00</lastmod><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://rafyco.pl/en/tags/jetbrains/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="pl"
+                    href="https://rafyco.pl/tags/jetbrains/"
+                    /></url><url>
+            <loc>https://rafyco.pl/posts/issue-link/</loc><lastmod>2025-04-10T06:00:00&#43;01:00</lastmod><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://rafyco.pl/en/posts/issue-link/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="pl"
+                    href="https://rafyco.pl/posts/issue-link/"
+                    /></url><url>
+            <loc>https://rafyco.pl/posts/</loc><lastmod>2025-04-10T06:00:00&#43;01:00</lastmod><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://rafyco.pl/en/posts/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="pl"
+                    href="https://rafyco.pl/posts/"
+                    /></url><url>
+            <loc>https://rafyco.pl/tags/programowanie/</loc><lastmod>2025-04-10T06:00:00&#43;01:00</lastmod></url><url>
+            <loc>https://rafyco.pl/</loc><lastmod>2025-04-10T06:00:00&#43;01:00</lastmod><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://rafyco.pl/en/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="pl"
+                    href="https://rafyco.pl/"
+                    /></url><url>
+            <loc>https://rafyco.pl/tags/</loc><lastmod>2025-04-10T06:00:00&#43;01:00</lastmod><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://rafyco.pl/en/tags/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="pl"
+                    href="https://rafyco.pl/tags/"
+                    /></url><url>
             <loc>https://rafyco.pl/about/</loc><lastmod>2025-03-17T22:47:59&#43;01:00</lastmod><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -11,25 +93,7 @@
                     hreflang="pl"
                     href="https://rafyco.pl/about/"
                     /></url><url>
-            <loc>https://rafyco.pl/</loc><lastmod>2025-03-17T22:47:59&#43;01:00</lastmod><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="https://rafyco.pl/en/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="pl"
-                    href="https://rafyco.pl/"
-                    /></url><url>
             <loc>https://rafyco.pl/naszslub/</loc><lastmod>2022-10-15T22:47:59&#43;01:00</lastmod></url><url>
-            <loc>https://rafyco.pl/categories/</loc><lastmod>2017-09-26T22:52:12&#43;01:00</lastmod><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="https://rafyco.pl/en/categories/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="pl"
-                    href="https://rafyco.pl/categories/"
-                    /></url><url>
             <loc>https://rafyco.pl/posts/nagrywarka/</loc><lastmod>2017-09-26T22:52:12&#43;01:00</lastmod><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -39,26 +103,8 @@
                     hreflang="pl"
                     href="https://rafyco.pl/posts/nagrywarka/"
                     /></url><url>
-            <loc>https://rafyco.pl/posts/</loc><lastmod>2017-09-26T22:52:12&#43;01:00</lastmod><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="https://rafyco.pl/en/posts/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="pl"
-                    href="https://rafyco.pl/posts/"
-                    /></url><url>
             <loc>https://rafyco.pl/categories/przemy%C5%9Blenia/</loc><lastmod>2017-09-26T22:52:12&#43;01:00</lastmod></url><url>
             <loc>https://rafyco.pl/tags/reklama/</loc><lastmod>2017-09-26T22:52:12&#43;01:00</lastmod></url><url>
-            <loc>https://rafyco.pl/tags/</loc><lastmod>2017-09-26T22:52:12&#43;01:00</lastmod><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="https://rafyco.pl/en/tags/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="pl"
-                    href="https://rafyco.pl/tags/"
-                    /></url><url>
             <loc>https://rafyco.pl/posts/prologue/</loc><lastmod>2017-08-18T22:49:51&#43;01:00</lastmod><xhtml:link
                         rel="alternate"
                         hreflang="en"
